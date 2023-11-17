@@ -1,0 +1,49 @@
+import UIKit
+
+struct Person {
+    let name: String
+    let image: UIImage
+    let description: String
+    let gender: Gender
+}
+
+enum Gender {
+    case male
+    case female
+}
+
+struct PersonImage {
+    static let person = "person"
+    static let fillPerson = "person.fill"
+}
+
+struct PersonDescription {
+    static let description = "Good boy"
+    static let description2 = "Good girl"
+}
+
+struct Source {
+    static func makePersons() -> [Person] {
+        [
+            .init(name: "Mars", image: .init(systemName: PersonImage.person)!, description: PersonDescription.description, gender: .male),
+            .init(name: "Daiana", image: .init(systemName: PersonImage.fillPerson)!, description: PersonDescription.description2, gender: .female),
+            .init(name: "Daniyar", image: .init(systemName: PersonImage.person)!, description: PersonDescription.description, gender: .male),
+            .init(name: "Askar", image: .init(systemName: PersonImage.person)!, description: PersonDescription.description, gender: .male),
+            .init(name: "Ayana", image: .init(systemName: PersonImage.fillPerson)!, description: PersonDescription.description2, gender: .female),
+            .init(name: "Adilet", image: .init(systemName: PersonImage.person)!, description: PersonDescription.description, gender: .male),
+            .init(name: "Tamerlan", image: .init(systemName: PersonImage.person)!, description: PersonDescription.description, gender: .male),
+            .init(name: "Dias", image: .init(systemName: PersonImage.person)!, description: PersonDescription.description, gender: .male),
+            .init(name: "Aset", image: .init(systemName: PersonImage.person)!, description: PersonDescription.description, gender: .male),
+            .init(name: "Mama", image: .init(systemName: PersonImage.fillPerson)!, description: PersonDescription.description2, gender: .female),
+            .init(name: "Asem", image: .init(systemName: PersonImage.fillPerson)!, description: PersonDescription.description2, gender: .female),
+            .init(name: "Yernar", image: .init(systemName: PersonImage.person)!, description: PersonDescription.description, gender: .male),
+            .init(name: "Yerbol", image: .init(systemName: PersonImage.person)!, description: PersonDescription.description, gender: .male)
+        ]
+    }
+    
+    static func makePersonsWithGender() -> [[Person]] {
+        let male = makePersons().filter { $0.gender == .male}
+        let female = makePersons().filter { $0.gender == .female}
+        return [male, female]
+    }
+}
